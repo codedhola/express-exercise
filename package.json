@@ -1,0 +1,24 @@
+{
+  "name": "express-exercise",
+  "version": "1.0.0",
+  "description": "A repo used in practising the express framework",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.io/codedhola/express-exercise.git"
+  },
+  "keywords": [
+    "nodejs",
+    "backend",
+    "100daysofcode"
+  ],
+  "author": "coded hola",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

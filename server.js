@@ -38,7 +38,8 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/recommend", (req, res) => {
-    res.render("recommend");
+    const data = JSON.parse(fileData);
+    res.render("recommend", {scholars: data.length, getScholars: data });
 });
 
 app.post("/recommend", (req, res) => {

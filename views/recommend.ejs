@@ -7,8 +7,15 @@
     <title>RECOMMEND page</title>
 </head>
 <body>
-    <header>RECOMMEND: <span>A place SCHOLARS are identified</span></header>
-    <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, aut. Ratione, fugiat ducimus molestiae beatae necessitatibus fuga cum animi perferendis!</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime temporibus officiis reprehenderit iste? Quos animi repudiandae, voluptate ab at nemo tenetur exercitationem dolorum quis a, doloribus dignissimos explicabo quisquam dicta reprehenderit tempora eum. Sequi ipsum neque ut consequuntur eveniet aliquam esse minima qui asperiores rem, dolore ab provident, amet quasi.</p>
+    <header>RECOMMEND: <span>we currenctly have <%= scholars %> scholars in our portfolio </span></header>
+    <h2>Recommended scholars</h2>
+    <ul>
+        <% for(const scholar of getScholars) { %>
+            <li><p><%= scholar.user_name %></p></li>
+            <li><p><%= scholar.user_email %></p></li>
+            <li><p><%= scholar.user_message %></p></li>
+            <hr />
+        <% } %>
+    </ul>
 </body>
 </html>

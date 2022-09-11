@@ -13,6 +13,16 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use("/", routes);
 
+// ERROR <404> 
+app.use((req, res) => {
+    res.send("Error page not found")
+})
+
+// ERROR <500>
+app.use((error, req, res, next) => {
+    res.send("server error");
+})
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server currently running on localhost:${PORT}`);

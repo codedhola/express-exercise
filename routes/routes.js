@@ -1,51 +1,27 @@
-const path = require("path");
-const fs = require("fs");
 const express = require("express");
 const router = express.Router();
 
-// READ FILE 
-const filePath = path.join(`./data/db.json`);
-const fileData = fs.readFileSync(filePath,"utf-8");
+const { 
+    home, index, about, scholars, register, recommend, postRecommend 
+    } = require("../controllers/controllers");
 
-router.get("/",  (req, res) => {
-    res.status(200).send("THIS IS THE HOMEPAGE FOR MY APP\u{1F605}");
-})
+router.get("/", home)
 
-router.get("/index", (req, res) => {
-    res.render("index");
-});
+router.get("/index", index);
 
-router.get("/about", (req, res) => {
-    res.render("about");
-});
+router.get("/about", about);
 
-router.get("/scholars", (req, res) => {
-    res.render("scholars");
-});
+router.get("/scholars", scholars);
 
-router.get("/register", (req, res) => {
-    res.render("register");
-});
+router.get("/register", register);
 
-router.get("/recommend", (req, res) => {
-    res.render("recommend");
-});
+router.get("/recommend", recommend);
 
 
 // ROUTING
 
 
 
-router.post("/recommend", (req, res) => {
-    const scholars = req.body;
-    const data = JSON.parse(fileData);
-    data.push(scholars);
-    console.log(data);
-    fs.writeFile(filePath, JSON.stringify(data) , (error) => {
-        if(error) throw error 
-    })
-
-    res.redirect("scholars");
-});
+router.post("/recommend", postRecommend);
 
 module.exports = router;
